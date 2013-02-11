@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="d6fb43df-9e52-45fb-b3e2-8203bf06958b" name="Rich@RICH-PC 2013-02-03 21:51:15" runUser="Rich-PC\Rich" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Default Test Settings" id="660aba41-0f7d-4f18-bc0b-c2f34d0b3148">
+    <Deployment runDeploymentRoot="Rich_RICH-PC 2013-02-03 21_51_15">
+      <DeploymentItem filename="C:\Users\Rich\documents\visual studio 2010\Projects\SubsonicMVC\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll" />
+      <DeploymentItem filename="C:\Users\Rich\Documents\Visual Studio 2010\Projects\SubsonicMVC\SubsonicMVC\bin\SubsonicMVC.dll" />
+      <DeploymentItem filename="C:\Users\Rich\documents\visual studio 2010\Projects\SubsonicMVC\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.Helpers.dll" />
+      <DeploymentItem filename="C:\Users\Rich\documents\visual studio 2010\Projects\SubsonicMVC\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll" />
+      <DeploymentItem filename="C:\Users\Rich\documents\visual studio 2010\Projects\SubsonicMVC\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll" />
+      <DeploymentItem filename="C:\Users\Rich\documents\visual studio 2010\Projects\SubsonicMVC\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll" />
+      <DeploymentItem filename="C:\Users\Rich\documents\visual studio 2010\Projects\SubsonicMVC\packages\Microsoft.AspNet.Razor.2.0.20715.0\lib\net40\System.Web.Razor.dll" />
+      <DeploymentItem filename="C:\Users\Rich\documents\visual studio 2010\Projects\SubsonicMVC\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2013-02-03T21:51:15.5601207-06:00" queuing="2013-02-03T21:51:16.0689098-06:00" start="2013-02-03T21:51:16.0786754-06:00" finish="2013-02-03T21:51:16.3511363-06:00" />
+  <ResultSummary outcome="Completed">
+    <Counters total="1" executed="1" passed="1" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="TestDeserializeAlbum" storage="c:\users\rich\documents\visual studio 2010\projects\subsonicmvc\subsonicmvc.tests\bin\debug\subsonicmvc.tests.dll" id="ed8d743d-ab7c-57f2-714a-d1fdd42cbc86">
+      <Execution id="6f4e6f0e-f923-4b45-938b-608c416dd17c" />
+      <TestMethod codeBase="C:/Users/Rich/documents/visual studio 2010/Projects/SubsonicMVC/SubsonicMVC.Tests/bin/Debug/SubsonicMVC.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SubsonicMVC.Tests.SubsonicService.SubsonicResponseSerializerUtilityTest, SubsonicMVC.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestDeserializeAlbum" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="ed8d743d-ab7c-57f2-714a-d1fdd42cbc86" executionId="6f4e6f0e-f923-4b45-938b-608c416dd17c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="6f4e6f0e-f923-4b45-938b-608c416dd17c" testId="ed8d743d-ab7c-57f2-714a-d1fdd42cbc86" testName="TestDeserializeAlbum" computerName="RICH-PC" duration="00:00:00.1333801" startTime="2013-02-03T21:51:16.0855113-06:00" endTime="2013-02-03T21:51:16.3306285-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6f4e6f0e-f923-4b45-938b-608c416dd17c">
+    </UnitTestResult>
+  </Results>
+</TestRun>

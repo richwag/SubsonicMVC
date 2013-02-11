@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="b488ca4c-3c90-4a91-bb8c-f72a72d80a09" name="Rich@RICH-PC 2013-01-22 20:59:22" runUser="Rich-PC\Rich" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Default Test Settings" id="b08ed6a8-2c02-4e90-9391-9444b637c200">
+    <Deployment userDeploymentRoot="C:\Users\Rich\Documents\Visual Studio 2010\Projects\SubsonicMVC\TestResults" useDefaultDeploymentRoot="false" runDeploymentRoot="Rich_RICH-PC 2013-01-22 20_59_22">
+      <DeploymentItem filename="c:\users\rich\documents\visual studio 2010\Projects\SubsonicMVC\SubsonicMVC\bin\SubsonicMVC.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2013-01-22T20:59:22.4494227-06:00" queuing="2013-01-22T20:59:22.5371677-06:00" start="2013-01-22T20:59:22.5447977-06:00" finish="2013-01-22T20:59:22.7485187-06:00" />
+  <ResultSummary outcome="Completed">
+    <Counters total="1" executed="1" passed="1" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="TestDeserializeError" storage="c:\users\rich\documents\visual studio 2010\projects\subsonicmvc\subsonicmvc.tests\bin\debug\subsonicmvc.tests.dll" id="be719570-d8e6-cb9a-8394-a508aa3188f1">
+      <Execution id="3322993f-be58-40f1-903c-8da7e7a57b03" />
+      <TestMethod codeBase="C:/Users/Rich/Documents/Visual Studio 2010/Projects/SubsonicMVC/SubsonicMVC.Tests/bin/Debug/SubsonicMVC.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SubsonicMVC.Tests.Subsonic.SubsonicResponseSerializerUtilityTest, SubsonicMVC.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestDeserializeError" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="be719570-d8e6-cb9a-8394-a508aa3188f1" executionId="3322993f-be58-40f1-903c-8da7e7a57b03" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="3322993f-be58-40f1-903c-8da7e7a57b03" testId="be719570-d8e6-cb9a-8394-a508aa3188f1" testName="TestDeserializeError" computerName="RICH-PC" duration="00:00:00.1080078" startTime="2013-01-22T20:59:22.5478497-06:00" endTime="2013-01-22T20:59:22.7370737-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3322993f-be58-40f1-903c-8da7e7a57b03">
+    </UnitTestResult>
+  </Results>
+</TestRun>

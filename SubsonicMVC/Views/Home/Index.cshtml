@@ -1,0 +1,47 @@
+﻿@using System.Web.Mvc.Html;
+<div class="grid_2 columnContainer">
+    <div class="column container" id="artistsContainer">
+        <div data-bind="foreach: ArtistIndeces" id="artists">
+            <h3 data-bind="text: Name">
+            </h3>
+            <div data-bind="foreach: Artists" class="artistsAlphaSection">
+                <div data-bind="text: Name" class="artistName ui-state-default ui-corner-all listItem">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="grid_2 columnContainer">
+    <div class="column container" id="albumsContainer">
+    </div>
+</div>
+<div class="grid_2 columnContainer">
+    <div class="column container" id="albumContainer">
+    </div>
+</div>
+<div class="grid_6" style="height: 20px"></div>
+<div class="grid_6">
+    @{Html.RenderPartial("~/Views/Home/JSPlayer.cshtml");}
+</div>
+<div style="display: none" id="albumsTemplate">
+    <div data-bind="with: Artist">
+        <div data-bind="foreach: Albums">
+            <div class="album">
+                <img data-bind="attr: { src: CoverArtUrl }" />
+                <div data-bind="text: Name" class="albumTitle">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div style="display: none" id="albumTemplate">
+    <div data-bind="with: Album">
+        <div data-bind="foreach: Songs">
+            <!--<img data-bind="attr: { src: CoverArtUrl }" />-->
+            <div class="song ui-state-default ui-corner-all listItem">
+                <span data-bind="text: Track" class="songNumber"></span><span data-bind="text: Title"
+                    class="songTitle"></span>
+            </div>
+        </div>
+    </div>
+</div>

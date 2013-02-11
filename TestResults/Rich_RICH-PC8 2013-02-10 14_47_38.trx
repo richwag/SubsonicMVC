@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="15aac3d8-1b83-45f0-b844-51b20455422c" name="Rich@RICH-PC8 2013-02-10 14:47:38" runUser="RICH-PC8\Rich" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Default Test Settings" id="aaa292c0-0d9a-4cf2-ab4c-45296c2b0943">
+    <Deployment runDeploymentRoot="Rich_RICH-PC8 2013-02-10 14_47_38">
+      <DeploymentItem filename="C:\Users\Rich\Documents\Projects\SubsonicMVC\packages\Microsoft.AspNet.Razor.2.0.20715.0\lib\net40\System.Web.Razor.dll" />
+      <DeploymentItem filename="C:\Users\Rich\Documents\Projects\SubsonicMVC\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.Helpers.dll" />
+      <DeploymentItem filename="C:\Users\Rich\Documents\Projects\SubsonicMVC\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll" />
+      <DeploymentItem filename="C:\Users\Rich\Documents\Projects\SubsonicMVC\SubsonicMVC\bin\SubsonicMVC.dll" />
+      <DeploymentItem filename="C:\Users\Rich\Documents\Projects\SubsonicMVC\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll" />
+      <DeploymentItem filename="C:\Users\Rich\Documents\Projects\SubsonicMVC\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll" />
+      <DeploymentItem filename="C:\Users\Rich\Documents\Projects\SubsonicMVC\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll" />
+      <DeploymentItem filename="C:\Users\Rich\Documents\Projects\SubsonicMVC\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2013-02-10T14:47:38.4936105-06:00" queuing="2013-02-10T14:47:49.3751397-06:00" start="2013-02-10T14:47:49.6830081-06:00" finish="2013-02-10T14:49:11.4442375-06:00" />
+  <ResultSummary outcome="Error">
+    <Counters total="9" executed="1" error="0" failed="0" timeout="0" aborted="1" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="8" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+    <RunInfos>
+      <RunInfo computerName="RICH-PC8" outcome="Error" timestamp="2013-02-10T14:49:11.4422856-06:00">
+        <Text>Test host process exited unexpectedly.</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="TestDeserializeArtists" storage="c:\users\rich\documents\projects\subsonicmvc\subsonicmvc.tests\bin\debug\subsonicmvc.tests.dll" id="8b865da6-7fbb-9a35-b446-251830278c78">
+      <Execution id="709efa2f-1273-4a20-b00e-77c2978c3c90" />
+      <TestMethod codeBase="C:/Users/Rich/Documents/Projects/SubsonicMVC/SubsonicMVC.Tests/bin/Debug/SubsonicMVC.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SubsonicMVC.Tests.SubsonicService.SubsonicResponseSerializerUtilityTest, SubsonicMVC.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestDeserializeArtists" />
+    </UnitTest>
+    <UnitTest name="TestDeserializeError" storage="c:\users\rich\documents\projects\subsonicmvc\subsonicmvc.tests\bin\debug\subsonicmvc.tests.dll" id="c9b66a38-aec6-92fe-3596-52e4a0b2c512">
+      <Execution id="deab36df-e1c6-4daf-a71d-47b8056b0a94" />
+      <TestMethod codeBase="C:/Users/Rich/Documents/Projects/SubsonicMVC/SubsonicMVC.Tests/bin/Debug/SubsonicMVC.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SubsonicMVC.Tests.SubsonicService.SubsonicResponseSerializerUtilityTest, SubsonicMVC.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestDeserializeError" />
+    </UnitTest>
+    <UnitTest name="TestArtists" storage="c:\users\rich\documents\projects\subsonicmvc\subsonicmvc.tests\bin\debug\subsonicmvc.tests.dll" id="322b6b90-fbe4-ae06-6000-e10178a9238d">
+      <Execution id="0a21c791-fddb-438f-8ee9-76b9ad2231ff" />
+      <TestMethod codeBase="C:/Users/Rich/Documents/Projects/SubsonicMVC/SubsonicMVC.Tests/bin/Debug/SubsonicMVC.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SubsonicMVC.Tests.SubsonicService.SubsonicUnitTest, SubsonicMVC.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestArtists" />
+    </UnitTest>
+    <UnitTest name="TestDeserializeAlbum" storage="c:\users\rich\documents\projects\subsonicmvc\subsonicmvc.tests\bin\debug\subsonicmvc.tests.dll" id="ed8d743d-ab7c-57f2-714a-d1fdd42cbc86">
+      <Execution id="a592ee7f-4155-4088-83d7-23c8e3863521" />
+      <TestMethod codeBase="C:/Users/Rich/Documents/Projects/SubsonicMVC/SubsonicMVC.Tests/bin/Debug/SubsonicMVC.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SubsonicMVC.Tests.SubsonicService.SubsonicResponseSerializerUtilityTest, SubsonicMVC.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestDeserializeAlbum" />
+    </UnitTest>
+    <UnitTest name="TestDeserializeArtist" storage="c:\users\rich\documents\projects\subsonicmvc\subsonicmvc.tests\bin\debug\subsonicmvc.tests.dll" id="1137703f-18ff-12a4-89f6-20de0ed85f3a">
+      <Execution id="163bec64-ad83-4eaa-a537-b19e5c464ceb" />
+      <TestMethod codeBase="C:/Users/Rich/Documents/Projects/SubsonicMVC/SubsonicMVC.Tests/bin/Debug/SubsonicMVC.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SubsonicMVC.Tests.SubsonicService.SubsonicResponseSerializerUtilityTest, SubsonicMVC.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestDeserializeArtist" />
+    </UnitTest>
+    <UnitTest name="TestDeserializeFolders" storage="c:\users\rich\documents\projects\subsonicmvc\subsonicmvc.tests\bin\debug\subsonicmvc.tests.dll" id="d8828c00-2344-e5fb-86d7-0c028f568dc0">
+      <Execution id="52ae2b10-5776-4966-8888-e25b67505d9a" />
+      <TestMethod codeBase="C:/Users/Rich/Documents/Projects/SubsonicMVC/SubsonicMVC.Tests/bin/Debug/SubsonicMVC.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SubsonicMVC.Tests.SubsonicService.SubsonicResponseSerializerUtilityTest, SubsonicMVC.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestDeserializeFolders" />
+    </UnitTest>
+    <UnitTest name="TestDeserializeNoFolders" storage="c:\users\rich\documents\projects\subsonicmvc\subsonicmvc.tests\bin\debug\subsonicmvc.tests.dll" id="4d5cdc5d-7824-db27-8b0c-6b37cb2b8900">
+      <Execution id="394142d0-9375-4061-8d17-c4b35b338a07" />
+      <TestMethod codeBase="C:/Users/Rich/Documents/Projects/SubsonicMVC/SubsonicMVC.Tests/bin/Debug/SubsonicMVC.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SubsonicMVC.Tests.SubsonicService.SubsonicResponseSerializerUtilityTest, SubsonicMVC.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestDeserializeNoFolders" />
+    </UnitTest>
+    <UnitTest name="TestFolders" storage="c:\users\rich\documents\projects\subsonicmvc\subsonicmvc.tests\bin\debug\subsonicmvc.tests.dll" id="f1b8109c-5e15-e63e-5ecb-829159aa15e3">
+      <Execution id="bfa53591-00da-4396-9552-b34fee0e986f" />
+      <TestMethod codeBase="C:/Users/Rich/Documents/Projects/SubsonicMVC/SubsonicMVC.Tests/bin/Debug/SubsonicMVC.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SubsonicMVC.Tests.SubsonicService.SubsonicUnitTest, SubsonicMVC.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestFolders" />
+    </UnitTest>
+    <UnitTest name="Index" storage="c:\users\rich\documents\projects\subsonicmvc\subsonicmvc.tests\bin\debug\subsonicmvc.tests.dll" id="5e46a728-b78c-549e-7635-fa238f72f352">
+      <Execution id="84527d2b-9ce0-4935-8414-d2ee606fb3a4" />
+      <TestMethod codeBase="C:/Users/Rich/Documents/Projects/SubsonicMVC/SubsonicMVC.Tests/bin/Debug/SubsonicMVC.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SubsonicMVC.Tests.Controllers.HomeControllerTest, SubsonicMVC.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Index" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="f1b8109c-5e15-e63e-5ecb-829159aa15e3" executionId="bfa53591-00da-4396-9552-b34fee0e986f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="322b6b90-fbe4-ae06-6000-e10178a9238d" executionId="0a21c791-fddb-438f-8ee9-76b9ad2231ff" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="5e46a728-b78c-549e-7635-fa238f72f352" executionId="84527d2b-9ce0-4935-8414-d2ee606fb3a4" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4d5cdc5d-7824-db27-8b0c-6b37cb2b8900" executionId="394142d0-9375-4061-8d17-c4b35b338a07" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d8828c00-2344-e5fb-86d7-0c028f568dc0" executionId="52ae2b10-5776-4966-8888-e25b67505d9a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c9b66a38-aec6-92fe-3596-52e4a0b2c512" executionId="deab36df-e1c6-4daf-a71d-47b8056b0a94" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="8b865da6-7fbb-9a35-b446-251830278c78" executionId="709efa2f-1273-4a20-b00e-77c2978c3c90" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="1137703f-18ff-12a4-89f6-20de0ed85f3a" executionId="163bec64-ad83-4eaa-a537-b19e5c464ceb" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ed8d743d-ab7c-57f2-714a-d1fdd42cbc86" executionId="a592ee7f-4155-4088-83d7-23c8e3863521" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="bfa53591-00da-4396-9552-b34fee0e986f" testId="f1b8109c-5e15-e63e-5ecb-829159aa15e3" testName="TestFolders" computerName="RICH-PC8" duration="00:01:21.6339065" startTime="2013-02-10T14:47:49.8093559-06:00" endTime="2013-02-10T14:49:11.4432624-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Aborted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="bfa53591-00da-4396-9552-b34fee0e986f">
+    </UnitTestResult>
+    <UnitTestResult executionId="0a21c791-fddb-438f-8ee9-76b9ad2231ff" testId="322b6b90-fbe4-ae06-6000-e10178a9238d" testName="TestArtists" computerName="RICH-PC8" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0a21c791-fddb-438f-8ee9-76b9ad2231ff">
+    </UnitTestResult>
+    <UnitTestResult executionId="84527d2b-9ce0-4935-8414-d2ee606fb3a4" testId="5e46a728-b78c-549e-7635-fa238f72f352" testName="Index" computerName="RICH-PC8" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="84527d2b-9ce0-4935-8414-d2ee606fb3a4">
+    </UnitTestResult>
+    <UnitTestResult executionId="394142d0-9375-4061-8d17-c4b35b338a07" testId="4d5cdc5d-7824-db27-8b0c-6b37cb2b8900" testName="TestDeserializeNoFolders" computerName="RICH-PC8" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="394142d0-9375-4061-8d17-c4b35b338a07">
+    </UnitTestResult>
+    <UnitTestResult executionId="52ae2b10-5776-4966-8888-e25b67505d9a" testId="d8828c00-2344-e5fb-86d7-0c028f568dc0" testName="TestDeserializeFolders" computerName="RICH-PC8" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="52ae2b10-5776-4966-8888-e25b67505d9a">
+    </UnitTestResult>
+    <UnitTestResult executionId="deab36df-e1c6-4daf-a71d-47b8056b0a94" testId="c9b66a38-aec6-92fe-3596-52e4a0b2c512" testName="TestDeserializeError" computerName="RICH-PC8" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="deab36df-e1c6-4daf-a71d-47b8056b0a94">
+    </UnitTestResult>
+    <UnitTestResult executionId="709efa2f-1273-4a20-b00e-77c2978c3c90" testId="8b865da6-7fbb-9a35-b446-251830278c78" testName="TestDeserializeArtists" computerName="RICH-PC8" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="709efa2f-1273-4a20-b00e-77c2978c3c90">
+    </UnitTestResult>
+    <UnitTestResult executionId="163bec64-ad83-4eaa-a537-b19e5c464ceb" testId="1137703f-18ff-12a4-89f6-20de0ed85f3a" testName="TestDeserializeArtist" computerName="RICH-PC8" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="163bec64-ad83-4eaa-a537-b19e5c464ceb">
+    </UnitTestResult>
+    <UnitTestResult executionId="a592ee7f-4155-4088-83d7-23c8e3863521" testId="ed8d743d-ab7c-57f2-714a-d1fdd42cbc86" testName="TestDeserializeAlbum" computerName="RICH-PC8" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a592ee7f-4155-4088-83d7-23c8e3863521">
+    </UnitTestResult>
+  </Results>
+</TestRun>

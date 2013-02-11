@@ -1,0 +1,8 @@
+﻿@model SubsonicMVC.Models.Album
+
+<div>
+    @foreach (SubsonicMVC.Models.Song s in Model)
+    {
+        <div>@s.Title</div>
+    }
+</div>

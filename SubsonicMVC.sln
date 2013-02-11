@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubsonicMVC", "SubsonicMVC\SubsonicMVC.csproj", "{E18D1831-67CB-4491-81AB-46AD588D70FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubsonicMVC.Tests", "SubsonicMVC.Tests\SubsonicMVC.Tests.csproj", "{BCD159D4-2665-4D3D-ACB5-716A315EDC6F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E18D1831-67CB-4491-81AB-46AD588D70FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E18D1831-67CB-4491-81AB-46AD588D70FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E18D1831-67CB-4491-81AB-46AD588D70FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E18D1831-67CB-4491-81AB-46AD588D70FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCD159D4-2665-4D3D-ACB5-716A315EDC6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCD159D4-2665-4D3D-ACB5-716A315EDC6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCD159D4-2665-4D3D-ACB5-716A315EDC6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCD159D4-2665-4D3D-ACB5-716A315EDC6F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
