@@ -249,7 +249,7 @@
 		_createItemHandlers: function() {
 			var self = this;
 			// Create .live() handlers for the playlist items
-			$(this.cssSelector.playlist + " a." + this.options.playlistOptions.itemClass).off("click").on("click", function() {
+			$(this.cssSelector.playlist).delegate(" a." + this.options.playlistOptions.itemClass, "click", function() {
 				var index = $(this).parent().parent().index();
 				if(self.current !== index) {
 					self.play(index);
@@ -261,14 +261,14 @@
 			});
 
 			// Create .live() handlers that disable free media links to force access via right click
-			$(self.cssSelector.playlist + " a." + this.options.playlistOptions.freeItemClass).off("click").on("click", function() {
+			$(self.cssSelector.playlist ).delegate(" a." + this.options.playlistOptions.freeItemClass, "click", function() {
 				$(this).parent().parent().find("." + self.options.playlistOptions.itemClass).click();
 				$(this).blur();
 				return false;
 			});
 
 			// Create .live() handlers for the remove controls
-			$(self.cssSelector.playlist + " a." + this.options.playlistOptions.removeItemClass).off("click").on("click", function() {
+			$(self.cssSelector.playlist).delegate(" a." + this.options.playlistOptions.removeItemClass, "click", function() {
 				var index = $(this).parent().parent().index();
 				self.remove(index);
 				$(this).blur();
