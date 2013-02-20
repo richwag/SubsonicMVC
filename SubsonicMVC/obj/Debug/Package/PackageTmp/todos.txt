@@ -1,0 +1,5 @@
+﻿* Use model events for changing artist, album, etc
+* overall page styling. use rounded rectangle containers
+* incorporate scrolling panel
+* sizeable player
+* playlist

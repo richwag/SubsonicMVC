@@ -1,0 +1,139 @@
+﻿
+body
+{
+    max-width: 600px;
+    margin: auto;
+}
+
+.outerContainer
+{
+	font-size: 8pt;
+}
+
+#artists
+{
+
+}
+
+.listItem
+{
+	cursor: pointer;
+	display: inline-block;
+	width: 95%;
+	padding: 1px;
+	margin: 1px 0px 1px 0px;	
+}
+
+/* artist */
+.artistName
+{
+
+}
+
+/* artists */
+#artistsContainer
+{
+}
+
+.artistsAlphaSection
+{
+	text-align: center;
+}
+
+.container
+{
+	overflow: auto;	
+}
+.column
+{
+	height: 400px;
+	margin: 2px;
+}
+
+.columnContainer
+{
+    border-radius: 5px;
+    background-color: #009be3;
+}
+
+/* albums */
+#albumsContainer
+{
+
+}
+
+#albumsContainer img
+{
+	width: 100%;
+}
+
+/* album */
+.albumTitle 
+{
+	width: 100%;
+	text-align: center;
+}
+
+.album
+{
+	padding: 2px;
+	border-radius: 3px;
+}
+
+#albumContainer
+{
+    text-align: center;
+}
+
+/* song */
+.song
+{
+    text-align: left;
+}
+
+.songTitle
+{
+	display: inline-block;
+	width: 85%;
+}
+
+.songNumber
+{
+	display: inline-block;
+	width: 10%;
+	vertical-align: top;
+}
+
+/* general styles */
+.selected
+{
+	background-color: Yellow;
+}
+
+/* jquery ui overrides */
+.ui-accordion .ui-accordion-content
+{
+	padding: 0;
+}
+
+.ui-accordion .ui-accordion-header
+{
+	padding: 1px 1px 1px 2em;
+}
+
+div.jp-playlist ul
+{
+    border-style: solid;
+    border-color: transparent;
+    min-height: 30px;
+}
+
+div.jp-playlist.dropHighlight ul
+{
+    border-color: Yellow;
+}
+
+div.jp-playlist li
+{
+    text-align: center;
+}

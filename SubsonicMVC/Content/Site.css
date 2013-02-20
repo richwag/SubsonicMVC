@@ -1,6 +1,8 @@
 ﻿
 body
 {
+    max-width: 600px;
+    margin: auto;
 }
 
 .outerContainer
@@ -134,4 +136,10 @@ div.jp-playlist.dropHighlight ul
 div.jp-playlist li
 {
     text-align: center;
+}
+
+div.jp-playlist
+{
+    max-height: 150px;
+    overflow: auto;
 }

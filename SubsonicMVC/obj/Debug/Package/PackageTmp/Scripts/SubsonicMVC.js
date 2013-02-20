@@ -1,0 +1,190 @@
+﻿/// <reference path="jquery-1.9.0.js" />
+/// <reference path="jquery-ui-1.10.0.js" />
+/// <reference path="knockout-2.2.1.debug.js" />
+/// <reference path="add-on/jplayer.playlist.js" />
+
+(function () {
+    var vm = {
+        artists: null,
+        selectedArtist: null,
+        albums: null,
+        album: null
+    },
+    playlist = null,
+    playUrl = "home/Play/";
+
+    // Helper to change the ui state of an element to selected.
+    function selectEl(el, className) {
+        $(className).removeClass("ui-state-highlight");
+        $(el).addClass("ui-state-highlight");
+    }
+
+    // Artist selected, loaded albums for that artist
+    function artistSelected(artistEl) {
+        selectEl(artistEl, ".artistName");
+
+        vm.selectedArtist = ko.contextFor(artistEl);
+
+        $.ajax({
+            url: "home/Artist",
+            data: { id: vm.selectedArtist.$data.Id() },
+            async: true,
+            success: function (response) {
+                $("#albumsContainer").html($("#albumsTemplate").html());
+                vm.albums = ko.mapping.fromJS(response);
+
+                // Do we have a current album? If so remove all songs
+                if (vm.album) {
+                    vm.album.Album.Songs.removeAll();
+                }
+
+                ko.applyBindings(vm.albums, $("#albumsContainer")[0]);
+            }
+        });
+    }
+
+    // Load songs for album
+    function albumSelected(albumEl) {
+        selectEl(albumEl, ".album");
+
+        var album = ko.contextFor(albumEl);
+
+        $.ajax({
+            url: "home/Album",
+            data: { id: album.$data.Id() },
+            success: function (response) {
+                $("#albumContainer").html($("#albumTemplate").html());
+                vm.album = ko.mapping.fromJS(response);
+                ko.applyBindings(vm.album, $("#albumContainer")[0]);
+                $(".song").hover(function () { $(this).addClass('ui-state-hover'); }, function () { $(this).removeClass('ui-state-hover'); });
+
+                $(".song").draggable({
+                    start: function (event, ui) {
+                        var song = ko.contextFor(event.target);
+                        $.data(ui.helper, "song", song);
+                    },
+                    revert: "invalid",
+                    helper: "clone",
+                    stack: ".song"
+                });
+            }
+        });
+    }
+
+    function highlight(el) {
+        el.effect("highlight").effect("highlight").effect("highlight");
+    }
+
+    // Song selected, play it immediately (for now)
+    function songSelected(songEl) {
+        selectEl(songEl, ".song");
+
+        var song = ko.contextFor(songEl);
+
+        $("#jquery_jplayer_1").jPlayer("setMedia", {
+            mp3: playUrl + song.$data.Id()
+        }).jPlayer("play");
+    }
+
+    // initialize the JSPlayer component
+    function setupJSPlayer() {
+        $("#jquery_jplayer_1").jPlayer({
+            ready: function () {
+            },
+            solution: "flash",
+            swfPath: "/Scripts"
+        });
+
+        playlist = new jPlayerPlaylist({
+            jPlayer: "#jquery_jplayer_1",
+            cssSelectorAncestor: "#jp_container_1",
+            enableRemoveControls: true
+        },
+        [], {
+            swfPath: "/Scripts",
+            supplied: "mp3"
+        });
+
+        $("#jp_container_1").droppable({
+            accept: '.song',
+            over: function () {
+                $('.jp-playlist').addClass("dropHighlight");
+            },
+            out: function () {
+                $('.jp-playlist').removeClass("dropHighlight");
+            },
+            drop: function (event, ui) {
+                var song = $.data(ui.helper, "song"),
+                playlistItem = {
+                    title: song.$data.Title(),
+                    artist: vm.selectedArtist.$data.Name(),
+                    mp3: playUrl + song.$data.Id()
+                };
+
+                highlight(ui.draggable);
+                $('.jp-playlist').removeClass("dropHighlight");
+
+                playlist.add(playlistItem);
+
+                // attach the playlist item to the newly added li element. Makes it easy to get it 
+                //  back when sorting the list.
+                $(".jp-playlist ul li:last").data("playlistItem", playlistItem);
+                $(".jp-playlist ul").sortable("refresh");
+            }
+        });
+    }
+
+    // Hookup event listeners to parts of the ui
+    function setupUI() {
+        setupJSPlayer();
+
+        // Listen at the document level since these things come and go
+        $(document).on("click", ".artistName", function () {
+            artistSelected(this);
+        });
+
+        $(document).on("click", ".album", function () {
+            albumSelected(this);
+        });
+
+        $(document).on("click", ".song.listItem", function () {
+            songSelected(this);
+        });
+
+        // Set the playlist as sortable
+        $(".jp-playlist ul").sortable({
+            stop: function (event, ui) {
+                playlist.playlist = [];
+                $(".jp-playlist ul li").each(function () {
+                    playlist.playlist.push($(this).removeClass("jp-playlist-current").data("playlistItem"));
+                });
+
+                $(".jp-playlist ul li:first").addClass("jp-playlist-current");
+            }
+        });
+    }
+
+    // get the list of artists and put them in the UI
+    function getArtists() {
+        var folderSelect = $("#musicFolderSelect");
+
+        $.ajax({
+            url: "home/Artists",
+            success: function (response) {
+                vm.artists = ko.mapping.fromJS(response);
+                ko.applyBindings(vm.artists, $("#artistsContainer")[0]);
+                $("#artists").accordion({
+                    heightStyle: "content"
+                });
+
+                // Add a hover effect
+                $(".artistName").hover(function () { $(this).addClass('ui-state-hover'); }, function () { $(this).removeClass('ui-state-hover'); });
+            }
+        });
+    }
+
+    $(function () {
+        setupUI();
+        getArtists();
+    });
+})();

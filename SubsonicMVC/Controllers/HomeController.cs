@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using SubsonicMVC.SubsonicService;
 using System.IO;
+using System.Net;
 
 namespace SubsonicMVC.Controllers
 {
@@ -26,6 +27,16 @@ namespace SubsonicMVC.Controllers
         public JsonResult Artists()
         {
             return Json(subsonic.Artists, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        public ActionResult Play(int id)
+        {
+            WebClient urlGrabber = new WebClient();
+            byte[] buffer = urlGrabber.DownloadData("http://server:9001/rest/stream.view?c=me&v=1.8.0&u=anyone&p=anyone&id=" + id);
+            var fileStream = new MemoryStream(buffer);
+
+            return (new FileStreamResult(fileStream, "audio/mp3"));
         }
 
         [HttpGet]
