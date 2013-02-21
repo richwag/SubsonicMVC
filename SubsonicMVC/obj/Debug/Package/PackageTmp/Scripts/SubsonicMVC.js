@@ -39,6 +39,27 @@
                 }
 
                 ko.applyBindings(vm.albums, $("#albumsContainer")[0]);
+                $(".album").draggable({
+                    start: function (event, ui) {
+                        var album = ko.contextFor(event.target);
+                        $.data(ui.helper, "album", album);
+                    },
+                    revert: "invalid",
+                    helper: "clone",
+                    stack: ".album"
+                });
+            }
+        });
+    }
+
+    function getAlbum(options) {
+        var album = options.albumEl ? ko.contextFor(options.albumEl) : options.album;
+
+        $.ajax({
+            url: "home/Album",
+            data: { id: album.$data.Id() },
+            success: function (response) {
+                options.success(response);
             }
         });
     }
@@ -47,11 +68,8 @@
     function albumSelected(albumEl) {
         selectEl(albumEl, ".album");
 
-        var album = ko.contextFor(albumEl);
-
-        $.ajax({
-            url: "home/Album",
-            data: { id: album.$data.Id() },
+        getAlbum({
+            albumEl: albumEl,
             success: function (response) {
                 $("#albumContainer").html($("#albumTemplate").html());
                 vm.album = ko.mapping.fromJS(response);
@@ -88,6 +106,7 @@
 
     // initialize the JSPlayer component
     function setupJSPlayer() {
+        // Setup our jplayer
         $("#jquery_jplayer_1").jPlayer({
             ready: function () {
             },
@@ -95,18 +114,26 @@
             swfPath: "/Scripts"
         });
 
+        $("#jquery_jplayer_1").bind($.jPlayer.event.play, null, function (event) {
+            var media = event.jPlayer.status.media;
+            $(".posterArt img").attr("src", media.poster).attr("alt", media.artist);
+        });
+
+        // Setup our jplayer playlist
         playlist = new jPlayerPlaylist({
             jPlayer: "#jquery_jplayer_1",
-            cssSelectorAncestor: "#jp_container_1",
-            enableRemoveControls: true
+            cssSelectorAncestor: "#jp_container_1"
         },
         [], {
+            playlistOptions: {
+                enableRemoveControls: true
+            },
             swfPath: "/Scripts",
             supplied: "mp3"
         });
 
         $("#jp_container_1").droppable({
-            accept: '.song',
+            accept: '.song,.album',
             over: function () {
                 $('.jp-playlist').addClass("dropHighlight");
             },
@@ -114,22 +141,43 @@
                 $('.jp-playlist').removeClass("dropHighlight");
             },
             drop: function (event, ui) {
-                var song = $.data(ui.helper, "song"),
-                playlistItem = {
-                    title: song.$data.Title(),
-                    artist: vm.selectedArtist.$data.Name(),
-                    mp3: playUrl + song.$data.Id()
-                };
+                if (ui.helper.hasClass("song")) {
+                    var song = $.data(ui.helper, "song"),
+                    playlistItem = {
+                        title: song.$data.Title(),
+                        artist: vm.selectedArtist.$data.Name(),
+                        mp3: playUrl + song.$data.Id(),
+                        poster: vm.album.Album.CoverArtUrl()
+                    };
 
-                highlight(ui.draggable);
-                $('.jp-playlist').removeClass("dropHighlight");
+                    highlight(ui.draggable);
+                    $('.jp-playlist').removeClass("dropHighlight");
 
-                playlist.add(playlistItem);
+                    playlist.add(playlistItem);
 
-                // attach the playlist item to the newly added li element. Makes it easy to get it 
-                //  back when sorting the list.
-                $(".jp-playlist ul li:last").data("playlistItem", playlistItem);
-                $(".jp-playlist ul").sortable("refresh");
+                    // attach the playlist item to the newly added li element. Makes it easy to get it 
+                    //  back when sorting the list.
+                    $(".jp-playlist ul li:last").data("playlistItem", playlistItem);
+                    $(".jp-playlist ul").sortable("refresh");
+                }
+                else if (ui.helper.hasClass("album")) {
+                    getAlbum({
+                        album: $.data(ui.helper, "album"),
+                        success: function (response) {
+                            highlight(ui.draggable);
+                            $('.jp-playlist').removeClass("dropHighlight");
+
+                            $.each(response.Album.Songs, function (i, song) {
+                                playlist.add({
+                                    title: song.Title,
+                                    artist: vm.selectedArtist.$data.Name(),
+                                    mp3: playUrl + song.Id,
+                                    poster: response.Album.CoverArtUrl
+                                });
+                            });
+                        }
+                    });
+                }
             }
         });
     }
@@ -162,6 +210,7 @@
                 $(".jp-playlist ul li:first").addClass("jp-playlist-current");
             }
         });
+
     }
 
     // get the list of artists and put them in the UI

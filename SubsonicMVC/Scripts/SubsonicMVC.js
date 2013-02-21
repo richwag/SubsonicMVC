@@ -52,6 +52,7 @@
         });
     }
 
+    // Retrieves an album from the server
     function getAlbum(options) {
         var album = options.albumEl ? ko.contextFor(options.albumEl) : options.album;
 
@@ -106,6 +107,7 @@
 
     // initialize the JSPlayer component
     function setupJSPlayer() {
+        // Setup our jplayer
         $("#jquery_jplayer_1").jPlayer({
             ready: function () {
             },
@@ -113,6 +115,12 @@
             swfPath: "/Scripts"
         });
 
+        $("#jquery_jplayer_1").bind($.jPlayer.event.play, null, function (event) {
+            var media = event.jPlayer.status.media;
+            $(".posterArt img").attr("src", media.poster).attr("alt", media.artist);
+        });
+
+        // Setup our jplayer playlist
         playlist = new jPlayerPlaylist({
             jPlayer: "#jquery_jplayer_1",
             cssSelectorAncestor: "#jp_container_1"
@@ -139,7 +147,8 @@
                     playlistItem = {
                         title: song.$data.Title(),
                         artist: vm.selectedArtist.$data.Name(),
-                        mp3: playUrl + song.$data.Id()
+                        mp3: playUrl + song.$data.Id(),
+                        poster: vm.album.Album.CoverArtUrl()
                     };
 
                     highlight(ui.draggable);
@@ -147,10 +156,11 @@
 
                     playlist.add(playlistItem);
 
+                    /*
                     // attach the playlist item to the newly added li element. Makes it easy to get it 
                     //  back when sorting the list.
                     $(".jp-playlist ul li:last").data("playlistItem", playlistItem);
-                    $(".jp-playlist ul").sortable("refresh");
+                    $(".jp-playlist ul").sortable("refresh");*/
                 }
                 else if (ui.helper.hasClass("album")) {
                     getAlbum({
@@ -163,7 +173,8 @@
                                 playlist.add({
                                     title: song.Title,
                                     artist: vm.selectedArtist.$data.Name(),
-                                    mp3: playUrl + song.Id
+                                    mp3: playUrl + song.Id,
+                                    poster: response.Album.CoverArtUrl
                                 });
                             });
                         }
@@ -191,6 +202,7 @@
         });
 
         // Set the playlist as sortable
+        /*
         $(".jp-playlist ul").sortable({
             stop: function (event, ui) {
                 playlist.playlist = [];
@@ -199,6 +211,55 @@
                 });
 
                 $(".jp-playlist ul li:first").addClass("jp-playlist-current");
+            }
+        });*/
+
+        artistSearcher();
+    }
+
+    function artistSearcher() {
+        var searchEl = $("#searchArtists"),
+            artistsContainer = $("#artistsContainer");
+
+        searchEl.bind("change keydown keyup", function (event) {
+            var text = searchEl.val();
+
+            if (text.length === 0) {
+                searchEl.parent().removeClass("searching");
+
+                // Reshow the headers
+                $(".ui-accordion-header", artistsContainer).show();
+
+                // Show all artists
+                $(".artistName", artistsContainer).show();
+
+                // Show the currently expanded list of artists
+                $(".ui-accordion-header-active+.ui-accordion-content", artistsContainer).show();
+
+                // Make sure the non-active ones are not visible
+                $(".ui-accordion-content", artistsContainer).not(".ui-accordion-header-active+.ui-accordion-content").hide();
+            }
+            else {
+                searchEl.parent().addClass("searching");
+
+                // hide the headers and show all the content blocks
+                $(".ui-accordion-header:visible", artistsContainer).hide();
+                $(".ui-accordion-content").show();
+
+                $(".artistName:visible", artistsContainer).each(function () {
+                    var artistEl = $(this);
+                    console.log("item");
+
+                    if (artistEl.text().indexOf(text) === -1) {
+                        artistEl.hide();
+                    }
+                    else {
+                        artistEl.parent().show();
+                        artistEl.show();
+                    }
+                });
+
+                $(".ui-accordion-content", artistsContainer).not(".ui-accordion-content:has(.artistName:visible)").hide();
             }
         });
     }

@@ -46,16 +46,23 @@ namespace SubsonicMVC.Controllers
 
             foreach (var album in result.Artist.Albums)
             {
-                album.CoverArtUrl = Url.Action("AlbumArt", new { id = album.CoverArtId });
+                CoverArtUrl(album);
             }
 
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
+        private void CoverArtUrl(Models.Album album)
+        {
+            album.CoverArtUrl = Url.Action("AlbumArt", new { id = album.CoverArtId });
+        }
+
         [HttpGet]
         public JsonResult Album(int id)
         {
-            return Json(subsonic.Album(id), JsonRequestBehavior.AllowGet);
+            var result = subsonic.Album(id);
+            CoverArtUrl(result.Album);
+            return Json(result, JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]

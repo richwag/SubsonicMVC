@@ -143,3 +143,18 @@ div.jp-playlist
     max-height: 150px;
     overflow: auto;
 }
+
+.posterArt
+{
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    left: 20px;
+    bottom: 5px;
+}
+
+.posterArt img
+{
+    width: 100%;
+    height: 100%;
+}
