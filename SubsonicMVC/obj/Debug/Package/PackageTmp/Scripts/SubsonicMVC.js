@@ -52,6 +52,7 @@
         });
     }
 
+    // Retrieves an album from the server
     function getAlbum(options) {
         var album = options.albumEl ? ko.contextFor(options.albumEl) : options.album;
 
@@ -155,10 +156,11 @@
 
                     playlist.add(playlistItem);
 
+                    /*
                     // attach the playlist item to the newly added li element. Makes it easy to get it 
                     //  back when sorting the list.
                     $(".jp-playlist ul li:last").data("playlistItem", playlistItem);
-                    $(".jp-playlist ul").sortable("refresh");
+                    $(".jp-playlist ul").sortable("refresh");*/
                 }
                 else if (ui.helper.hasClass("album")) {
                     getAlbum({
@@ -200,6 +202,7 @@
         });
 
         // Set the playlist as sortable
+        /*
         $(".jp-playlist ul").sortable({
             stop: function (event, ui) {
                 playlist.playlist = [];
@@ -209,8 +212,56 @@
 
                 $(".jp-playlist ul li:first").addClass("jp-playlist-current");
             }
-        });
+        });*/
 
+        artistSearcher();
+    }
+
+    function artistSearcher() {
+        var searchEl = $("#searchArtists"),
+            artistsContainer = $("#artistsContainer");
+
+        searchEl.bind("change keydown keyup", function (event) {
+            var text = searchEl.val();
+
+            if (text.length === 0) {
+                searchEl.parent().removeClass("searching");
+
+                // Reshow the headers
+                $(".ui-accordion-header", artistsContainer).show();
+
+                // Show all artists
+                $(".artistName", artistsContainer).show();
+
+                // Show the currently expanded list of artists
+                $(".ui-accordion-header-active+.ui-accordion-content", artistsContainer).show();
+
+                // Make sure the non-active ones are not visible
+                $(".ui-accordion-content", artistsContainer).not(".ui-accordion-header-active+.ui-accordion-content").hide();
+            }
+            else {
+                searchEl.parent().addClass("searching");
+
+                // hide the headers and show all the content blocks
+                $(".ui-accordion-header:visible", artistsContainer).hide();
+                $(".ui-accordion-content").show();
+
+                $(".artistName:visible", artistsContainer).each(function () {
+                    var artistEl = $(this);
+                    console.log("item");
+
+                    if (artistEl.text().indexOf(text) === -1) {
+                        artistEl.hide();
+                    }
+                    else {
+                        artistEl.parent().show();
+                        artistEl.show();
+                    }
+                });
+
+                $(".ui-accordion-content", artistsContainer).not(".ui-accordion-content:has(.artistName:visible)").hide();
+            }
+        });
     }
 
     // get the list of artists and put them in the UI

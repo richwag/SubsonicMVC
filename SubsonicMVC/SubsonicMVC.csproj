@@ -187,6 +187,7 @@
     <Content Include="Content\themes\ui-lightness\jquery-ui-1.10.0.custom.css" />
     <Content Include="Content\themes\ui-lightness\jquery-ui-1.10.0.custom.min.css" />
     <Content Include="Global.asax" />
+    <Content Include="Images\wave-background.jpg" />
     <Content Include="Scripts\add-on\jplayer.playlist.js" />
     <Content Include="Scripts\add-on\jquery.jplayer.inspector.js" />
     <Content Include="Scripts\Jplayer.swf" />

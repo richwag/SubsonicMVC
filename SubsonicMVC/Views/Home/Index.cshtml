@@ -1,7 +1,9 @@
 ﻿@using System.Web.Mvc.Html;
+<div class="grid_6 header">
+</div>
 <div class="grid_2 columnContainer">
     <div class="column container" id="artistsContainer">
-        <div><input id="searchArtists" /></div>
+        <div style="text-align:center"><input id="searchArtists" /></div>
         <div data-bind="foreach: ArtistIndeces" id="artists">
             <h3 data-bind="text: Name">
             </h3>
