@@ -96,13 +96,14 @@
 
     // Song selected, play it immediately (for now)
     function songSelected(songEl) {
+    /*
         selectEl(songEl, ".song");
 
         var song = ko.contextFor(songEl);
 
         $("#jquery_jplayer_1").jPlayer("setMedia", {
             mp3: playUrl + song.$data.Id()
-        }).jPlayer("play");
+        }).jPlayer("play");*/
     }
 
     // initialize the JSPlayer component
@@ -204,14 +205,14 @@
         // Set the playlist as sortable
         /*
         $(".jp-playlist ul").sortable({
-            stop: function (event, ui) {
-                playlist.playlist = [];
-                $(".jp-playlist ul li").each(function () {
-                    playlist.playlist.push($(this).removeClass("jp-playlist-current").data("playlistItem"));
-                });
+        stop: function (event, ui) {
+        playlist.playlist = [];
+        $(".jp-playlist ul li").each(function () {
+        playlist.playlist.push($(this).removeClass("jp-playlist-current").data("playlistItem"));
+        });
 
-                $(".jp-playlist ul li:first").addClass("jp-playlist-current");
-            }
+        $(".jp-playlist ul li:first").addClass("jp-playlist-current");
+        }
         });*/
 
         artistSearcher();
@@ -222,7 +223,7 @@
             artistsContainer = $("#artistsContainer");
 
         searchEl.bind("change keydown keyup", function (event) {
-            var text = searchEl.val();
+            var text = searchEl.val().toLowerCase();
 
             if (text.length === 0) {
                 searchEl.parent().removeClass("searching");
@@ -250,7 +251,7 @@
                     var artistEl = $(this);
                     console.log("item");
 
-                    if (artistEl.text().indexOf(text) === -1) {
+                    if (artistEl.text().toLowerCase().indexOf(text) === -1) {
                         artistEl.hide();
                     }
                     else {
@@ -261,6 +262,10 @@
 
                 $(".ui-accordion-content", artistsContainer).not(".ui-accordion-content:has(.artistName:visible)").hide();
             }
+        }).focusin(function () {
+            $("label[for=searchArtists]").hide();
+        }).focusout(function () {
+            $("label[for=searchArtists]")[searchEl.val().length ? "hide" : "show"](); 
         });
     }
 

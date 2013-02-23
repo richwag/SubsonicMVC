@@ -169,3 +169,31 @@ div.jp-playlist
 {
     border-radius: 5px;
 }
+
+
+#searchArtistsContainer
+{
+    height: 30px;
+}
+
+#artistsContainer
+{
+    height: 370px;  
+}
+
+
+label[for=searchArtists]
+{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 10;
+}
+
+#searchArtists
+{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    left: 5px;
+}
